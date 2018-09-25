@@ -1,0 +1,49 @@
+/**
+ * 擬似コードによるマニュアル
+ */
+class Astar {
+
+
+    property maxSeachNodePerFrame; // 1フレームで処理する最大ノード数
+    property maxSeachCount; // 計算する最大フレーム数
+    property interval; // 計算フレームの間隔
+    /**
+    * コンストラクタ
+    */
+    function Astar()
+
+    /**
+     * 地形データを作成する
+     * @param layerObj Layerクラスのオブジェクト
+     * @param gridSize 画像データから地形データを作成する際のグリッド間隔
+     * @return trueで成功,falseで失敗
+     */
+    function createTmx(layerObj,gridSize);
+
+    /**
+     * 任意の座標の地形データを調べる
+     * @param x 調べるX座標（レイヤー座標基準）
+     * @param y 調べるY座標（レイヤー座標基準）
+     * @return 0または1
+     */
+    function getTmx(x, y);
+
+    /**
+	 * 経路計算を開始する
+	 * @param sx 始点の地点のx座標（レイヤー座標基準）
+	 * @param sy 始点の地点のy座標（レイヤー座標基準）
+	 * @param ex 終点の地点のx座標（レイヤー座標基準）
+	 * @param ey 終点の地点のy座標（レイヤー座標基準）
+	 * @param calcEndFunc 計算終了時に呼ばれるメソッド。メソッドの第一引数に経路が入った配列、第二引数にステータスコードが渡される
+   * @return 0で成功,1は通行不可の領域が指定された,2が始点と終点が同じ
+	 */
+  	function start(sx, sy, ex, ey, calcEndFunc);
+
+    /**
+     * 計算終わりに呼ばれるコールバック（メソッド名は任意）
+     * @param pathArray 始点から終点までの経路ノードの座標が入った配列が渡される
+     * @param code 計算時のステータスが渡される 0が正常終了,1が始点が範囲外の場合,2が検索回数上限までにゴールに到達出来なかった
+     */
+    function calcEndFunc(pathArray,code)
+    
+}
